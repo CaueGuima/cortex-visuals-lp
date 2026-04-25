@@ -727,9 +727,11 @@
     var r = document.getElementById('fR').value.trim();
     var c = document.getElementById('fC').value.trim();
     if (!n || !t) { alert('Preencha nome e telefone.'); return; }
-    var leads = JSON.parse(localStorage.getItem('cx_leads') || '[]');
-    leads.push({ id: Date.now(), nome: n, tel: t, restaurante: r, cidade: c, status: 'Novo', data: new Date().toLocaleDateString('pt-BR') });
-    localStorage.setItem('cx_leads', JSON.stringify(leads));
+    fetch('https://hook.us2.make.com/d2lx6yvrmbgaux10gxajsfvcxffi3vne', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome: n, telefone: t, restaurante: r, cidade: c, data: new Date().toLocaleDateString('pt-BR') })
+    });
     document.getElementById('fContent').style.display = 'none';
     document.getElementById('fOk').style.display = 'block';
   }
