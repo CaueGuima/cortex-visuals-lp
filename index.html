@@ -478,7 +478,7 @@
     </div>
 
     <div class="hero-plate reveal d4">
-      <span>FIG.&nbsp;01</span><span>PLATE&nbsp;/&nbsp;FRAME</span>
+      <span>CRTX&nbsp;/&nbsp;DIAG</span><span>META&nbsp;&amp;&nbsp;GOOGLE</span>
     </div>
 
     <div class="hero-corner reveal">
@@ -520,12 +520,12 @@
     </h2>
     <div class="dor-meta">
       <div class="reveal d1">
-        <span>3 <em>em</em> 4</span>
-        negócios que impulsionam anúncio nunca testaram criativo de forma estruturada — só apostam e torcem.
+        <span>A <em>maioria</em></span>
+        troca criativo sem saber o que tá travando — muda a imagem, aumenta a verba e torce pra melhorar.
       </div>
       <div class="reveal d2">
-        <span>2<em>×</em></span>
-        é quanto você multiplica o desperdício ao aumentar a verba sem antes corrigir o criativo.
+        <span>R$&nbsp;<em>0</em></span>
+        é o quanto adianta aumentar a verba sem antes entender por que o criativo não converte.
       </div>
       <div class="reveal d3">
         <span>O <em>erro</em></span>
@@ -624,7 +624,7 @@
     <span class="modal-close" onclick="closeModal()">✕ FECHAR</span>
     <div id="fContent">
       <div class="modal-title">DIAGNÓSTICO GRATUITO</div>
-      <div class="modal-sub">Manda o link do anúncio e o WhatsApp — a gente devolve a análise em vídeo em até 24h</div>
+      <div class="modal-sub">Preencha e entraremos em contato pelo WhatsApp em até 24h com a análise do seu criativo</div>
       <div class="fg">
         <label>NOME COMPLETO</label>
         <input type="text" id="fN" placeholder="Seu nome">
@@ -634,8 +634,8 @@
         <input type="tel" id="fT" placeholder="(11) 99999-9999">
       </div>
       <div class="fg">
-        <label>LINK DO ANÚNCIO (META OU GOOGLE)</label>
-        <input type="url" id="fL" placeholder="https://facebook.com/ads/...">
+        <label>NOME DA EMPRESA</label>
+        <input type="text" id="fE" placeholder="Sua empresa ou negócio">
       </div>
       <button class="btn-form" onclick="submitF()">QUERO MEU DIAGNÓSTICO GRATUITO →</button>
     </div>
@@ -721,17 +721,16 @@
   function submitF() {
     var n = document.getElementById('fN').value.trim();
     var t = document.getElementById('fT').value.trim();
-    var l = document.getElementById('fL').value.trim();
+    var e = document.getElementById('fE').value.trim();
     if (!n || !t) { alert('Preencha nome e WhatsApp.'); return; }
     fetch('https://hook.us2.make.com/d2lx6yvrmbgaux10gxajsfvcxffi3vne', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome: n, telefone: t, link_anuncio: l, data: new Date().toLocaleDateString('pt-BR') })
+      body: JSON.stringify({ nome: n, telefone: t, empresa: e, origem: 'LP Genérica', data: new Date().toLocaleDateString('pt-BR') })
     });
     document.getElementById('fContent').style.display = 'none';
     document.getElementById('fOk').style.display = 'block';
   }
 </script>
 
-</body>
-</html>
+</body
